@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="ja" class="col2">
+<head>
+
+
+<script src="/js/prototype.js" charset="utf-8"></script>
+<script src="/js/external.js" charset="utf-8"></script>
+<title>改行置き換え君</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="改行,置換">
+<meta name="description" content="「改行」を「、」に置換">
+
+<!--[if lt IE 9]>
+<script src="../js/html5.js"></script>
+<![endif]-->
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function DeleteTest() {
+    document.TestForm.test.value = DeleteNewLine(document.TestForm.test.value);
+}
+
+function DeleteNewLine(myLen) {
+
+
+	var removed = myLen.replace(/\r?\n/g,'、');
+
+
+  const headcut = str => {
+    //略
+    let idx = 0;
+    while (str.charAt(idx)==='、') idx++;
+    return str.slice(idx);
+  };
+
+  var result = headcut(removed)
+
+  var splited = result.split( '、' );
+
+  for (var i = 0; i < splited.length; i++){
+	if (splited[i] === ""){
+		splited.splice(i, 1);  // 削除
+		if (i > 0) i--;
+	}
+}
+
+console.log(splited);
+
+var final = (splited.join("、"));
+
+
+
+    return(final);
+}
+//-->
+
+</script>
+</head>
+<body class="page" id="top">
+
+<div class="main-body">
+  <div class="main-body-in">
+
+    <!--▼メインコンテンツ-->
+    <main>
+      <div class="main-conts">
+
+        <h1 class="archive-title">改行置き換え君</h1>
+
+
+        <article class="section-wrap">
+          <div class="section-in">
+            <div class="article-body">
+              <p>ワンクリックで「改行」を「、」に置き換えます。</p>
+
+              <form name="TestForm">
+                <textarea class="w100" cols="70" rows="50" id="test" name="test"></textarea>
+                <input type="button"  value="　置換　" onClick="DeleteTest();" style="font-size:14px;">
+              </form>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </main>
+    <!--▲メインコンテンツ-->
+
+
+
+
+
+</body>
+</html>
